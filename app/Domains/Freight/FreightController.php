@@ -90,4 +90,6 @@ class FreightController extends Controller
             DB::raw('ST_AsText(dest_coord) as dest_coord')
         )->where('uuid', $uuid)->first();
     }
+
+
 }

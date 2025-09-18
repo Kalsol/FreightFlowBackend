@@ -2,25 +2,25 @@
 
 namespace App\Domains\Shipments;
 
-use App\Domains\Bids\Models\Bid;
+use App\Domains\Bids\Bid;
 use App\Domains\Contracts\Models\Contract;
 use App\Domains\Financials\Models\CostAllocation;
 // use App\Domains\Financials\Models\Escrow; // Duplicate removed
-use App\Domains\Financials\Models\Invoice;
-use App\Domains\Freight\Models\Freight;
-use App\Domains\Shipments\Models\HazardousMaterial;
-use App\Domains\Shipments\Models\TemperatureLog;
-use App\Domains\Shipments\Models\TrackingUpdate;
-use App\Domains\Shipments\Models\ShipmentAttachment;
-use App\Domains\Shipments\Models\ShipmentException;
-use App\Domains\Shipments\Models\CustomsDoc;
-use App\Domains\Shipments\Models\ShipmentPrediction;
-use App\Domains\Shipments\Models\ShipmentVersion;
-use App\Domains\Disputes\Models\Dispute;
-use App\Domains\Financials\Models\Escrow;
-use App\Domains\Communication\Models\Message;
-use App\Domains\Review\Models\RatingReview;
-use App\Domains\Users\Models\User;
+use App\Domains\Financials\Payments\Invoice;
+use App\Domains\Freight\Freight;
+use App\Domains\Shipments\HazardousMaterial;
+use App\Domains\Shipments\TemperatureLog;
+use App\Domains\Shipments\TrackingUpdate;
+use App\Domains\Shipments\ShipmentAttachment;
+use App\Domains\Shipments\ShipmentException;
+use App\Domains\Shipments\CustomsDoc;
+use App\Domains\Shipments\ShipmentPrediction;
+use App\Domains\Shipments\ShipmentVersion;
+use App\Domains\Disputes\Dispute;
+use App\Domains\Financials\Escrow;
+use App\Domains\Communication\Message;
+use App\Domains\Review\RatingReview;
+use App\Domains\Users\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

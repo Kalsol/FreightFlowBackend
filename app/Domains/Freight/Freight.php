@@ -100,7 +100,7 @@ class Freight extends Model
         return $this->hasMany(FreightAttachment::class);
     }
 
-      protected static function booted()
+    protected static function booted()
     {
         parent::booted();
 

@@ -8,7 +8,7 @@ use App\Domains\Users\Controllers\Auth\LoginController;
 use App\Domains\Users\Controllers\Password\PasswordController;
 use App\Domains\Freight\FreightController;
 use App\Domains\Users\Controllers\Auth\RegisterController;
-
+use App\Domains\Bids\BidsController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -39,3 +39,17 @@ Route::group(['prefix' => 'freights'], function () {
     Route::get('/', [FreightController::class, 'index']);
     Route::get('/search', [FreightController::class, 'searchFreight']);
 });
+
+Route::group(['prefix' => 'bids'], function () {
+    Route::post('/', [BidsController::class, 'create'])->middleware('auth:sanctum');
+    Route::put('/{uuid}', [BidsController::class, 'update'])->middleware('auth:sanctum');
+    Route::delete('/{uuid}', [BidsController::class, 'delete'])->middleware('auth:sanctum');
+    Route::get('/{uuid}', [BidsController::class, 'get'])->middleware('auth:sanctum');
+    Route::get('/', [BidsController::class, 'getAll'])->middleware('auth:sanctum');
+    Route::get('/freight/{freight_id}', [BidsController::class, 'getByFreight'])->middleware('auth:sanctum');
+    Route::get('/user/{user_id}', [BidsController::class, 'getByUser'])->middleware('auth:sanctum');
+    Route::get('/freight/{freight_id}/user/{user_id}', [BidsController::class, 'getByFreightAndUser'])->middleware('auth:sanctum');
+});
+
+
+

@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Domains\Financials\Models;
+namespace App\Domains\Financials\Payments;
 
-use App\Domains\Shipments\Models\Shipment;
+use App\Domains\Shipments\Shipment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+
+use App\Domains\Financials\Payments\Payment;
 
 class Invoice extends Model
 {

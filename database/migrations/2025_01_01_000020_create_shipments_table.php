@@ -23,7 +23,6 @@ return new class extends Migration
         Schema::create('shipments', function (Blueprint $table) {
 
             $table->id();
-
             $table->foreignId('freight_id')->constrained()->onDelete('cascade');
             $table->foreignId('load_owner_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('transporter_id')->constrained('users')->onDelete('cascade');

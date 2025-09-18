@@ -2,9 +2,9 @@
 
 namespace App\Domains\Bids;
 
-use App\Domains\Freight\Models\Freight;
+use App\Domains\Freight\Freight;
 use App\Domains\Users\User;
-use App\Domains\Shipments\Models\Shipment;
+use App\Domains\Shipments\Shipment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -22,7 +22,7 @@ class Bid extends Model
      */
     protected $fillable = [
         'freight_id',
-        'truck_owner_id',
+        'user_id',
         'bid_price',
         'estimated_delivery_time',
         'notes',
@@ -45,7 +45,7 @@ class Bid extends Model
      */
     public function truckOwner(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'truck_owner_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**
@@ -54,5 +54,16 @@ class Bid extends Model
     public function shipment(): HasOne
     {
         return $this->hasOne(Shipment::class, 'assigned_bid_id');
+    }
+
+    protected static function booted()
+    {
+        parent::booted();
+
+        static::creating(function ($user) {
+            if (empty($user->uuid)) {
+                $user->uuid = (string) \Illuminate\Support\Str::uuid();
+            }
+        });
     }
 }

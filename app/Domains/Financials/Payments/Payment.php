@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Domains\Financials\Models;
+namespace App\Domains\Financials\Payments;
 
+use App\Domains\Financials\Payments\Chargeback;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 
 class Payment extends Model
